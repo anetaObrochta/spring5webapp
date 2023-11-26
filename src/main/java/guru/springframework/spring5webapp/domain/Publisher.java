@@ -17,10 +17,10 @@ public class Publisher {
     private String city;
     private String state;
     private String zip;
+
     @OneToMany
     @JoinColumn(name = "publisher_id")
     private Set<Book> books = new HashSet<>();
-
 
     public Publisher() {
     }
@@ -52,40 +52,20 @@ public class Publisher {
 
         Publisher publisher = (Publisher) o;
 
-        if (!Objects.equals(id, publisher.id)) return false;
-        if (!Objects.equals(name, publisher.name)) return false;
-        if (!Objects.equals(addressLine, publisher.addressLine))
-            return false;
-        if (!Objects.equals(city, publisher.city)) return false;
-        if (!Objects.equals(state, publisher.state)) return false;
-        return Objects.equals(zip, publisher.zip);
+        return Objects.equals(id, publisher.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (addressLine != null ? addressLine.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (state != null ? state.hashCode() : 0);
-        result = 31 * result + (zip != null ? zip.hashCode() : 0);
-        return result;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        return id != null ? id.hashCode() : 0;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Publisher(String name, String addressLine, String city, String state, String zip) {
-        this.name = name;
-        this.addressLine = addressLine;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -127,5 +107,4 @@ public class Publisher {
     public void setZip(String zip) {
         this.zip = zip;
     }
-
 }

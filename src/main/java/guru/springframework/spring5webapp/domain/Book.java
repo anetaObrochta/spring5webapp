@@ -26,21 +26,9 @@ public class Book {
     public Book() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Book(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
-    }
-
-    public Book(Publisher publisher) {
-        this.publisher = publisher;
     }
 
     public Publisher getPublisher() {
@@ -49,6 +37,14 @@ public class Book {
 
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
